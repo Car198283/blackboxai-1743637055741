@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Study Tracker - Dashboard</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        .progress-ring__circle {
+            transition: stroke-dashoffset 0.5s;
+            transform: rotate(-90deg);
+            transform-origin: 50% 50%;
+        }
+    </style>
+</head>
+<body class="bg-gray-100 min-h-screen">
+    <!-- Navigation -->
+    <nav class="bg-white shadow-lg">
+        <div class="max-w-6xl mx-auto px-4">
+            <div class="flex justify-between">
+                <div class="flex space-x-7">
+                    <div class="flex items-center py-4 px-2">
+                        <span class="font-semibold text-gray-500 text-lg">
+                            <i class="fas fa-book-open text-blue-500 mr-2"></i>Study Tracker
+                        </span>
+                    </div>
+                </div>
+                <div class="flex items-center space-x-3">
+                    <a href="dashboard.html" class="py-4 px-2 text-blue-500 border-b-4 border-blue-500 font-semibold">
+                        <i class="fas fa-home mr-1"></i> Dashboard
+                    </a>
+                    <a href="schedule.html" class="py-4 px-2 text-gray-500 font-semibold hover:text-blue-500 transition duration-300">
+                        <i class="fas fa-calendar-alt mr-1"></i> Cronograma
+                    </a>
+                    <a href="progress.html" class="py-4 px-2 text-gray-500 font-semibold hover:text-blue-500 transition duration-300">
+                        <i class="fas fa-chart-line mr-1"></i> Progresso
+                    </a>
+                    <a href="settings.html" class="py-4 px-2 text-gray-500 font-semibold hover:text-blue-500 transition duration-300">
+                        <i class="fas fa-cog mr-1"></i> Configurações
+                    </a>
+                    <button id="logout-btn" class="py-2 px-3 bg-red-500 text-white rounded-lg hover:bg-red-600 transition duration-200">
+                        <i class="fas fa-sign-out-alt mr-1"></i> Sair
+                    </button>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <div class="container mx-auto px-4 py-8">
+        <div class="flex flex-col md:flex-row gap-6">
+            <!-- Progress Summary -->
+            <div class="w-full md:w-1/3 bg-white rounded-lg shadow-md p-6">
+                <h2 class="text-xl font-semibold mb-4 text-gray-800">
+                    <i class="fas fa-trophy text-yellow-500 mr-2"></i>Seu Progresso
+                </h2>
+                <div class="flex justify-center mb-4">
+                    <svg class="progress-ring" width="120" height="120">
+                        <circle class="progress-ring__circle" stroke="#e5e7eb" stroke-width="8" fill="transparent" r="52" cx="60" cy="60"/>
+                        <circle class="progress-ring__circle" stroke="#3b82f6" stroke-width="8" fill="transparent" r="52" cx="60" cy="60" stroke-dasharray="326.56" stroke-dashoffset="163.28"/>
+                    </svg>
+                </div>
+                <div class="text-center">
+                    <p class="text-3xl font-bold text-blue-500">65%</p>
+                    <p class="text-gray-600">das metas desta semana</p>
+                </div>
+                <div class="mt-6">
+                    <div class="flex justify-between mb-2">
+                        <span class="text-gray-700">Sessões completas:</span>
+                        <span class="font-semibold">13/20</span>
+                    </div>
+                    <div class="flex justify-between mb-2">
+                        <span class="text-gray-700">Horas estudadas:</span>
+                        <span class="font-semibold">18h 45m</span>
+                    </div>
+                    <div class="flex justify-between">
+                        <span class="text-gray-700">Dias consecutivos:</span>
+                        <span class="font-semibold">7</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Weekly Calendar -->
+            <div class="w-full md:w-2/3 bg-white rounded-lg shadow-md p-6">
+                <div class="flex justify-between items-center mb-6">
+                    <h2 class="text-xl font-semibold text-gray-800">
+                        <i class="fas fa-calendar-week text-blue-500 mr-2"></i>Esta Semana
+                    </h2>
+                    <div class="flex space-x-2">
+                        <button class="px-3 py-1 bg-gray-200 rounded-lg hover:bg-gray-300">
+                            <i class="fas fa-chevron-left"></i>
+                        </button>
+                        <span class="px-4 py-1 font-medium">12 - 18 Jun</span>
+                        <button class="px-3 py-1 bg-gray-200 rounded-lg hover:bg-gray-300">
+                            <i class="fas fa-chevron-right"></i>
+                        </button>
+                    </div>
+                </div>
+                
+                <div class="grid grid-cols-7 gap-1 mb-2">
+                    <div class="text-center font-medium text-gray-500 py-2">Dom</div>
+                    <div class="text-center font-medium text-gray-500 py-2">Seg</div>
+                    <div class="text-center font-medium text-gray-500 py-2">Ter</div>
+                    <div class="text-center font-medium text-gray-500 py-2">Qua</div>
+                    <div class="text-center font-medium text-gray-500 py-2">Qui</div>
+                    <div class="text-center font-medium text-gray-500 py-2">Sex</div>
+                    <div class="text-center font-medium text-gray-500 py-2">Sáb</div>
+                </div>
+                
+                <div class="grid grid-cols-7 gap-1">
+                    <div class="h-24 border rounded-lg p-1"></div>
+                    <div class="h-24 border rounded-lg p-1">
+                        <div class="bg-blue-100 text-blue-800 text-xs p-1 rounded mb-1">Matemática 14:00-15:30</div>
+                        <div class="bg-green-100 text-green-800 text-xs p-1 rounded">Programação 19:00-20:00</div>
+                    </div>
+                    <div class="h-24 border rounded-lg p-1">
+                        <div class="bg-purple-100 text-purple-800 text-xs p-1 rounded">Inglês 08:00-09:00</div>
+                    </div>
+                    <div class="h-24 border rounded-lg p-1"></div>
+                    <div class="h-24 border rounded-lg p-1">
+                        <div class="bg-yellow-100 text-yellow-800 text-xs p-1 rounded mb-1">História 10:00-11:30</div>
+                        <div class="bg-blue-100 text-blue-800 text-xs p-1 rounded">Matemática 16:00-17:00</div>
+                    </div>
+                    <div class="h-24 border rounded-lg p-1">
+                        <div class="bg-red-100 text-red-800 text-xs p-1 rounded">Química 09:00-10:30</div>
+                    </div>
+                    <div class="h-24 border rounded-lg p-1"></div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Upcoming Sessions -->
+        <div class="mt-8 bg-white rounded-lg shadow-md p-6">
+            <h2 class="text-xl font-semibold mb-4 text-gray-800">
+                <i class="fas fa-clock text-orange-500 mr-2"></i>Próximas Sessões
+            </h2>
+            <div class="space-y-3">
+                <div class="flex items-center justify-between p-3 border rounded-lg hover:bg-gray-50">
+                    <div>
+                        <h3 class="font-medium">Matemática - Álgebra Linear</h3>
+                        <p class="text-sm text-gray-600">Amanhã, 14:00 - 15:30</p>
+                    </div>
+                    <div class="flex space-x-2">
+                        <button class="px-3 py-1 bg-blue-100 text-blue-600 rounded-lg text-sm hover:bg-blue-200">
+                            <i class="fas fa-check mr-1"></i>Concluir
+                        </button>
+                        <button class="px-3 py-1 bg-gray-100 text-gray-600 rounded-lg text-sm hover:bg-gray-200">
+                            <i class="fas fa-edit mr-1"></i>Editar
+                        </button>
+                    </div>
+                </div>
+                <div class="flex items-center justify-between p-3 border rounded-lg hover:bg-gray-50">
+                    <div>
+                        <h3 class="font-medium">Programação - Estruturas de Dados</h3>
+                        <p class="text-sm text-gray-600">Amanhã, 19:00 - 20:00</p>
+                    </div>
+                    <div class="flex space-x-2">
+                        <button class="px-3 py-1 bg-blue-100 text-blue-600 rounded-lg text-sm hover:bg-blue-200">
+                            <i class="fas fa-check mr-1"></i>Concluir
+                        </button>
+                        <button class="px-3 py-1 bg-gray-100 text-gray-600 rounded-lg text-sm hover:bg-gray-200">
+                            <i class="fas fa-edit mr-1"></i>Editar
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+    <script>
+        // Update progress ring
+        document.addEventListener('DOMContentLoaded', () => {
+            const circle = document.querySelector('.progress-ring__circle');
+            const radius = circle.r.baseVal.value;
+            const circumference = radius * 2 * Math.PI;
+            const progress = 65; // Example value
+
+            circle.style.strokeDasharray = `${circumference} ${circumference}`;
+            circle.style.strokeDashoffset = circumference - (progress / 100) * circumference;
+
+            // Logout functionality
+            document.getElementById('logout-btn').addEventListener('click', () => {
+                localStorage.removeItem('currentUser');
+                window.location.href = 'index.html';
+            });
+
+            // Check authentication
+            if (!localStorage.getItem('currentUser')) {
+                window.location.href = 'index.html';
+            }
+        });
+    </script>
+</body>
+</html>
