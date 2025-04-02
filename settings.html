@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Study Tracker - Configurações</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body class="bg-gray-100 min-h-screen">
+    <!-- Navigation -->
+    <nav class="bg-white shadow-lg">
+        <div class="max-w-6xl mx-auto px-4">
+            <div class="flex justify-between">
+                <div class="flex space-x-7">
+                    <div class="flex items-center py-4 px-2">
+                        <span class="font-semibold text-gray-500 text-lg">
+                            <i class="fas fa-book-open text-blue-500 mr-2"></i>Study Tracker
+                        </span>
+                    </div>
+                </div>
+                <div class="flex items-center space-x-3">
+                    <a href="dashboard.html" class="py-4 px-2 text-gray-500 font-semibold hover:text-blue-500 transition duration-300">
+                        <i class="fas fa-home mr-1"></i> Dashboard
+                    </a>
+                    <a href="schedule.html" class="py-4 px-2 text-gray-500 font-semibold hover:text-blue-500 transition duration-300">
+                        <i class="fas fa-calendar-alt mr-1"></i> Cronograma
+                    </a>
+                    <a href="progress.html" class="py-4 px-2 text-gray-500 font-semibold hover:text-blue-500 transition duration-300">
+                        <i class="fas fa-chart-line mr-1"></i> Progresso
+                    </a>
+                    <a href="settings.html" class="py-4 px-2 text-blue-500 border-b-4 border-blue-500 font-semibold">
+                        <i class="fas fa-cog mr-1"></i> Configurações
+                    </a>
+                    <button id="logout-btn" class="py-2 px-3 bg-red-500 text-white rounded-lg hover:bg-red-600 transition duration-200">
+                        <i class="fas fa-sign-out-alt mr-1"></i> Sair
+                    </button>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <div class="container mx-auto px-4 py-8">
+        <div class="max-w-3xl mx-auto">
+            <h1 class="text-2xl font-bold text-gray-800 mb-6">
+                <i class="fas fa-user-cog mr-2"></i>Configurações da Conta
+            </h1>
+
+            <div class="bg-white rounded-lg shadow-md p-6 mb-6">
+                <h2 class="text-xl font-semibold mb-4 text-gray-800 border-b pb-2">
+                    <i class="fas fa-user mr-2"></i>Informações Pessoais
+                </h2>
+                <form id="profile-form">
+                    <div class="mb-4">
+                        <label class="block text-gray-700 mb-2" for="name">
+                            Nome Completo
+                        </label>
+                        <input type="text" id="name" class="w-full px-3 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500" value="João Silva">
+                    </div>
+                    <div class="mb-4">
+                        <label class="block text-gray-700 mb-2" for="email">
+                            Email
+                        </label>
+                        <input type="email" id="email" class="w-full px-3 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500" value="joao@exemplo.com">
+                    </div>
+                    <button type="submit" class="px-4 py-2 bg-blue-500 text-white rounded-lg hover:bg-blue-600 transition duration-200">
+                        <i class="fas fa-save mr-2"></i>Salvar Alterações
+                    </button>
+                </form>
+            </div>
+
+            <div class="bg-white rounded-lg shadow-md p-6 mb-6">
+                <h2 class="text-xl font-semibold mb-4 text-gray-800 border-b pb-2">
+                    <i class="fas fa-moon mr-2"></i>Preferências de Tema
+                </h2>
+                <div class="flex items-center space-x-4">
+                    <button id="light-theme" class="px-4 py-2 bg-blue-100 text-blue-600 rounded-lg border-2 border-blue-300">
+                        <i class="fas fa-sun mr-2"></i>Claro
+                    </button>
+                    <button id="dark-theme" class="px-4 py-2 bg-gray-700 text-gray-100 rounded-lg hover:bg-gray-800 transition duration-200">
+                        <i class="fas fa-moon mr-2"></i>Escuro
+                    </button>
+                    <button id="system-theme" class="px-4 py-2 bg-gray-100 text-gray-700 rounded-lg hover:bg-gray-200 transition duration-200">
+                        <i class="fas fa-desktop mr-2"></i>Sistema
+                    </button>
+                </div>
+            </div>
+
+            <div class="bg-white rounded-lg shadow-md p-6 mb-6">
+                <h2 class="text-xl font-semibold mb-4 text-gray-800 border-b pb-2">
+                    <i class="fas fa-bell mr-2"></i>Notificações
+                </h2>
+                <div class="space-y-4">
+                    <div class="flex items-center justify-between">
+                        <div>
+                            <h3 class="font-medium">Lembretes de Sessão</h3>
+                            <p class="text-sm text-gray-600">Notificações antes de cada sessão agendada</p>
+                        </div>
+                        <label class="relative inline-flex items-center cursor-pointer">
+                            <input type="checkbox" value="" class="sr-only peer" checked>
+                            <div class="w-11 h-6 bg-gray-200 peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-blue-300 rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-blue-500"></div>
+                        </label>
+                    </div>
+                    <div class="flex items-center justify-between">
+                        <div>
+                            <h3 class="font-medium">Resumo Semanal</h3>
+                            <p class="text-sm text-gray-600">Relatório de progresso no final de cada semana</p>
+                        </div>
+                        <label class="relative inline-flex items-center cursor-pointer">
+                            <input type="checkbox" value="" class="sr-only peer" checked>
+                            <div class="w-11 h-6 bg-gray-200 peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-blue-300 rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-blue-500"></div>
+                        </label>
+                    </div>
+                    <div class="flex items-center justify-between">
+                        <div>
+                            <h3 class="font-medium">Metas Diárias</h3>
+                            <p class="text-sm text-gray-600">Lembretes para manter sua sequência de estudos</p>
+                        </div>
+                        <label class="relative inline-flex items-center cursor-pointer">
+                            <input type="checkbox" value="" class="sr-only peer">
+                            <div class="w-11 h-6 bg-gray-200 peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-blue-300 rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-blue-500"></div>
+                        </label>
+                    </div>
+                </div>
+            </div>
+
+            <div class="bg-white rounded-lg shadow-md p-6">
+                <h2 class="text-xl font-semibold mb-4 text-gray-800 border-b pb-2">
+                    <i class="fas fa-exclamation-triangle text-red-500 mr-2"></i>Zona de Perigo
+                </h2>
+                <div class="space-y-4">
+                    <div class="flex items-center justify-between">
+                        <div>
+                            <h3 class="font-medium">Exportar Dados</h3>
+                            <p class="text-sm text-gray-600">Baixe um arquivo com todos os seus dados</p>
+                        </div>
+                        <button class="px-4 py-2 bg-green-500 text-white rounded-lg hover:bg-green-600 transition duration-200">
+                            <i class="fas fa-file-export mr-2"></i>Exportar
+                        </button>
+                    </div>
+                    <div class="flex items-center justify-between">
+                        <div>
+                            <h3 class="font-medium">Redefinir Dados</h3>
+                            <p class="text-sm text-gray-600">Apague todas as sessões e progresso</p>
+                        </div>
+                        <button id="reset-data" class="px-4 py-2 bg-yellow-500 text-white rounded-lg hover:bg-yellow-600 transition duration-200">
+                            <i class="fas fa-trash-alt mr-2"></i>Redefinir
+                        </button>
+                    </div>
+                    <div class="flex items-center justify-between">
+                        <div>
+                            <h3 class="font-medium">Excluir Conta</h3>
+                            <p class="text-sm text-gray-600">Remova permanentemente sua conta e todos os dados</p>
+                        </div>
+                        <button id="delete-account" class="px-4 py-2 bg-red-500 text-white rounded-lg hover:bg-red-600 transition duration-200">
+                            <i class="fas fa-user-times mr-2"></i>Excluir
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            // Check authentication
+            if (!localStorage.getItem('currentUser')) {
+                window.location.href = 'index.html';
+            }
+
+            // Logout functionality
+            document.getElementById('logout-btn').addEventListener('click', () => {
+                localStorage.removeItem('currentUser');
+                window.location.href = 'index.html';
+            });
+
+            // Theme switcher
+            document.getElementById('light-theme').addEventListener('click', () => {
+                document.documentElement.classList.remove('dark');
+                localStorage.setItem('theme', 'light');
+            });
+
+            document.getElementById('dark-theme').addEventListener('click', () => {
+                document.documentElement.classList.add('dark');
+                localStorage.setItem('theme', 'dark');
+            });
+
+            document.getElementById('system-theme').addEventListener('click', () => {
+                localStorage.removeItem('theme');
+                if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+                    document.documentElement.classList.add('dark');
+                } else {
+                    document.documentElement.classList.remove('dark');
+                }
+            });
+
+            // Reset data confirmation
+            document.getElementById('reset-data').addEventListener('click', () => {
+                if (confirm('Tem certeza que deseja redefinir todos os seus dados? Esta ação não pode ser desfeita.')) {
+                    localStorage.removeItem('sessions');
+                    alert('Todos os dados foram redefinidos com sucesso.');
+                }
+            });
+
+            // Delete account confirmation
+            document.getElementById('delete-account').addEventListener('click', () => {
+                if (confirm('Tem certeza que deseja excluir sua conta permanentemente? Todos os dados serão perdidos.')) {
+                    localStorage.removeItem('currentUser');
+                    localStorage.removeItem('users');
+                    localStorage.removeItem('sessions');
+                    window.location.href = 'index.html';
+                }
+            });
+
+            // Load user data
+            const user = JSON.parse(localStorage.getItem('currentUser'));
+            if (user) {
+                document.getElementById('name').value = user.name || '';
+                document.getElementById('email').value = user.email || '';
+            }
+
+            // Profile form submission
+            document.getElementById('profile-form').addEventListener('submit', (e) => {
+                e.preventDefault();
+                const user = JSON.parse(localStorage.getItem('currentUser'));
+                if (user) {
+                    user.name = document.getElementById('name').value;
+                    user.email = document.getElementById('email').value;
+                    localStorage.setItem('currentUser', JSON.stringify(user));
+                    alert('Perfil atualizado com sucesso!');
+                }
+            });
+        });
+    </script>
+</body>
+</html>
